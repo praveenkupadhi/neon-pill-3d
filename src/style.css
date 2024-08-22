@@ -1,0 +1,61 @@
+:root {
+  color-scheme: dark;
+}
+
+body {
+  font-family: system-ui;
+  margin: 0;
+}
+
+.neon-pill-container {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+}
+
+.neon-pill {
+  --neon-color: rgb(245, 60, 91);
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 100vw;
+  background-color: #000;
+  color: var(--neon-color);
+  border: none;
+  cursor: pointer;
+  text-shadow: 0 0 10px var(--neon-color), 0 0 20px var(--neon-color),
+    0 0 30px var(--neon-color), 0 0 40px var(--neon-color),
+    0 0 50px var(--neon-color);
+  position: relative;
+  perspective: 3d;
+  border: 4px solid var(--neon-color);
+  box-shadow: 0 0 3px var(--neon-color), 0 0 3px var(--neon-color),
+    0 0 3px var(--neon-color), 0 0 10px var(--neon-color),
+    0 0 5px var(--neon-color);
+  transition: text-shadow 0.2s linear, box-shadow 0.2s linear, filter 1s linear;
+}
+
+.neon-pill:hover {
+  text-shadow: 0 0 20px var(--neon-color), 0 0 30px var(--neon-color),
+    0 0 40px var(--neon-color), 0 0 50px var(--neon-color),
+    0 0 60px var(--neon-color);
+  box-shadow: 0 0 6px var(--neon-color), 0 0 6px var(--neon-color),
+    0 0 30px var(--neon-color), 0 0 50px var(--neon-color),
+    0 0 20px var(--neon-color);
+}
+
+.neon-pill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--neon-color);
+  width: 100%;
+  height: 100%;
+  top: 100%;
+  transform: perspective(3em) rotateX(60deg) scale(1, 0.8);
+  pointer-events: none;
+  filter: blur(20px);
+}
+
+.neon-pill:hover::after {
+  filter: blur(30px);
+}
